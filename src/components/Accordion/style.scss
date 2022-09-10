@@ -1,0 +1,22 @@
+.accordion {
+    margin-top:50px;
+    .accHead {
+        border: none;
+        border-top: 2px solid #c3c1c1;
+        button {
+            box-shadow: none;
+            background-color: transparent;
+            color: black;        
+            &:focus {
+                color: black;
+                box-shadow: none;
+                background-color: transparent;
+            }
+        }
+    }
+
+    .accBody {
+        color: #b5b2b2;
+        font-family: italic;
+    }
+}

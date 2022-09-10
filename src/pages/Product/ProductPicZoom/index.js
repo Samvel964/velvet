@@ -1,0 +1,1 @@
+export { ProductPicZoom } from './productPicZoom';
