@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/velvet/static/css/main.016b17ea.css",
-    "main.js": "/velvet/static/js/main.1ca1ddd3.js",
+    "main.css": "/velvet/static/css/main.4f97bd46.css",
+    "main.js": "/velvet/static/js/main.0dc9015b.js",
     "static/media/bg-2.jpg": "/velvet/static/media/bg-2.0d28aed7890c83808531.jpg",
     "static/media/bg.jpg": "/velvet/static/media/bg.bf517e076f2e538d183a.jpg",
     "static/media/logo.png": "/velvet/static/media/logo.f2a1166badaf5b087687.png",
     "static/media/banner-bg.jpg": "/velvet/static/media/banner-bg.f588b29145939c559001.jpg",
     "index.html": "/velvet/index.html",
-    "main.016b17ea.css.map": "/velvet/static/css/main.016b17ea.css.map",
-    "main.1ca1ddd3.js.map": "/velvet/static/js/main.1ca1ddd3.js.map"
+    "main.4f97bd46.css.map": "/velvet/static/css/main.4f97bd46.css.map",
+    "main.0dc9015b.js.map": "/velvet/static/js/main.0dc9015b.js.map"
   },
   "entrypoints": [
-    "static/css/main.016b17ea.css",
-    "static/js/main.1ca1ddd3.js"
+    "static/css/main.4f97bd46.css",
+    "static/js/main.0dc9015b.js"
   ]
 }
