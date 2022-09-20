@@ -207,3 +207,36 @@
         }
     }
 } // filter-widget
+
+.categories-filter {
+    overflow: hidden;
+    transition: .5s;
+}
+
+.categories-filter.active {
+    height: 1770px;
+    width: 300px;
+    overflow: hidden;
+}
+.btn-filter {
+    margin: 35px 10px;
+    // font-family: sans-serif;
+    // font-weight: 600;
+    // font-size: 19px;
+    // color: green;
+    // text-decoration: underline;
+    display: none;
+
+    &:hover {
+        background-color: #9a0f0f;
+    }
+}
+
+@media (max-width:991px){
+    .categories-filter {
+        height: 80px;
+    }
+    .btn-filter {
+        display: block;
+    }
+}

@@ -28,7 +28,7 @@ export const FilteredProducts = ({ products, tags, FilterTag, loadMore, showButt
       }
     } 
     if (!token) {
-      toast.error("Need to log in or registration");
+      toast.error("Requires registration or log in");
     }
   }
 
@@ -44,7 +44,7 @@ export const FilteredProducts = ({ products, tags, FilterTag, loadMore, showButt
         if (res) dispatch(setState());
       }
     } else {
-      toast.error("Need to log in or registration");
+      toast.error("Requires registration or log in");
     }    
   }
 

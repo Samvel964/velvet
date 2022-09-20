@@ -3,7 +3,13 @@
 	padding: 40px 34px 0;
 	background: #f0f0f0;
 	border-radius: 27px;
-	overflow: hidden;	
+	overflow: hidden;
+
+	&-warp {
+		@media (max-width: 510px) {
+			overflow-x: scroll;
+		}
+	}
 
 	h3 {
 		font-weight: 700;
@@ -80,14 +86,14 @@
 		justify-content: center;
 		//@at-root
 		display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	margin-bottom: 40px;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		margin-bottom: 40px;
 
 		.pro-qty {
 			width: 80px;
@@ -127,6 +133,29 @@
 		text-align: right;
 		padding: 22px 0;
 		padding-right: 50px;
+		display: flex;
+		justify-content: space-between;
+
+		.btn-buy {
+			margin-left: 86px;
+			font-family: sans-serif;
+			border: 2px solid;
+			background-color: transparent;
+			padding: 2px 25px;
+			color: white;
+			font-weight: 600;
+			transition: .2s;
+
+			&:hover {
+				background-color: white;
+				color: black;
+				border: 2px solid white;
+			}
+
+			&:active {
+				background-color: grey;
+			}
+		}
 
 		h6 {
 			line-height: 1;

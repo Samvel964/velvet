@@ -3,9 +3,7 @@
 
     .col-right {
         display: flex;
-        align-items: flex-end;
-        width: fit-content;
-        margin-left: auto;
+		justify-content: flex-end;
     }
 }
 
@@ -24,17 +22,14 @@
         font-size: 14px;
         a {
             color: black;
-
-            &:hover {
+			&:hover {
                 color: rgb(71, 71, 71);
             }
 
         }
-
         svg {
             font-size: 22px;
         }
-
         span {
             font-size: 14px;
 	        color: #000;
@@ -57,6 +52,9 @@
                 border-bottom:1px solid;
             }
         }
+		span.logOut-icon {
+			display: none;
+		}
         span.favorite {
             color: black;
             text-decoration: none;
@@ -65,54 +63,77 @@
             &:hover {
                 color: rgb(71, 71, 71);
             }
-
         }
-
+		span.favorite-icon, div.favorite-icon{
+			display: none;
+		}
         &:first-child {
             margin-right: 29px;
         }
-
-        .shopping-card {
+        .beauty-cart{
             display: inline-block;
             position: relative;
             margin: 0 10px;
+			svg {
+				font-size: 20px;
+				margin-left:10px;
+			}
+			span {
+				position: absolute;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				top: -8px;
+				left: 100%;
+				height: 16px;                  
+				min-width: 16px;
+				color: #fff;
+				font-size: 13px;
+				background: #f51167;
+				border-radius: 30px;
+				padding: 0 2px;
+				margin-left: -7px;
+				text-decoration: none;                
+			}
+        } // beauty-cart
+		
+		.shopping-cart-a-icon {
+			display: none;
+		}
+		
+    } //up-item
+} // user-panel
 
-            svg {
-                font-size: 20px;
-                margin-left:10px;
-            }
+@media only screen and (max-width: 768px) {
 
-            span {
-                position: absolute;
-                display: flex;
-                justify-content: center;
-                align-items: center                    ;
-                top: -8px;
-                left: 100%;
-                height: 16px;                  
-                min-width: 16px;
-                color: #fff;
-                font-size: 13px;
-                background: #f51167;
-                border-radius: 30px;
-                padding: 0 2px;
-                margin-left: -7px;
-                text-decoration: none;                
-            }
-
-            
-        }
-        
-    }
-
-    @media only screen and (min-width: 768px) and (max-width: 991px) {
-        text-align: center;
-    }
-
-    @media only screen and (max-width: 767px) {
-        text-align: center;
-    }
+	span.logOut {
+		display: none;
+	}
+	span.logOut-icon {
+		display: inline-block!important;
+		margin-left: 30px;
+	}
+	span.favorite {
+		display: none;
+	}
+	.shopping-cart-a {
+		display: none;
+	}
+	.user-panel {
+		.up-item {
+			.shopping-cart-a-icon {
+				display: inline-block;
+			}
+		}
+	}
 }
+
+@media only screen and (max-width: 375px) {
+	.user-panel .up-item:first-child {
+		margin: 0;
+	}
+}
+
 
 .main-navbar {
 	background: #282828;
@@ -124,13 +145,14 @@
             display: inline-block;
             position: relative;
 
-            a {
+            a,span {
                 display: inline-block;
                 font-size: 16px;
                 color: #ffffff;
                 margin-right: 50px;
                 line-height: 1;
                 padding: 17px 0;
+                cursor: pointer;
                 position: relative;
 
                 .new {
@@ -150,7 +172,11 @@
             }
 
             a.disabled {
-                cursor: no-drop;
+                pointer-events: none;
+                color: grey;
+                &:hover {
+                    color: grey;
+                }
             }
 
             &:hover .sub-menu{
@@ -161,6 +187,15 @@
 
             &:hover>a {
                 color: #f51167;
+            }
+            &:hover>span {
+                color: #f51167;
+            }
+        }
+        li.disabled {
+            cursor: no-drop;
+            &:hover>a {
+                color:gray;
             }
         }
 
@@ -198,20 +233,98 @@
                     @media only screen and (min-width: 768px) and (max-width: 991px) {
                         margin-right: 30px;
                     }
-                }
-                
+                }                
+            }
+            li.disabled {
+                cursor: no-drop;
             }
         }
 
         @media only screen and (min-width: 768px) and (max-width: 991px) {
             text-align: center;
         }
+    }
+}
 
-        // @media only screen and (max-width: 767px) {
-        //     display: none;
-        // }
-    }   
+.main-navbar-icon {
+	position: absolute;
+	list-style: none;
+	width: 220px;
+	left: 40px;
+	top: 5px;
+	padding: 10px 15px;
+	visibility: hidden;
+	opacity: 0;
+	margin-top: 50px;
+	background: #fff;
+	z-index: 99;
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	transition: all 0.4s;
+	-webkit-box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.05);
+	box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.05);
+
+	.main-menu-icon {
+		list-style: none;
+
+        li {
+            display: inline-block;
+            position: relative;
+
+            a {
+                display: inline-block;
+                font-size: 16px;
+				color: black;
+                margin-right: 50px;
+                line-height: 1;
+                padding: 10px 0;
+                position: relative;
+            }
+
+            &:hover>a {
+                color: #f51167;
+            }
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            text-align: center;
+        }
+	}
 }
 
 
+.burger-menu {
+	display: none;
+	position: absolute;
+	font-size: 25px;
+    top: 22px;
+    left: 55px;
+}
 
+
+@media only screen and (max-width: 767px) {
+	.main-navbar {
+		.main-menu {
+			display: none;
+			li {
+				a {
+					margin-right: 20px;
+				}
+			}
+		}
+		.main-menu-icon {
+			display: block;
+		}
+	}
+	.burger-menu {
+		display: inline-block;
+	}
+
+	.main-navbar-icon.active {
+		visibility: visible;
+		opacity: 1;
+	}
+	.logo img {
+		display: none;
+	}
+}

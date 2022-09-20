@@ -137,7 +137,7 @@ export const Registration = ({showRegistration}) => {
                     </div>
                   </div>
                 </div>
-                <div className="input_field radio_option">
+                {/* <div className="input_field radio_option">
                   <input type="radio" name="radiogroup1" id="rd1" />
                   <label htmlFor="rd1">Male</label>
                   <input type="radio" name="radiogroup1" id="rd2" />
@@ -146,11 +146,11 @@ export const Registration = ({showRegistration}) => {
                 <div className="input_field checkbox_option">
                   <input type="checkbox" id="cb1" />
                   <label htmlFor="cb1">I agree with terms and conditions</label>
-                </div>
-                <div className="input_field checkbox_option">
+                </div> */}
+                {/* <div className="input_field checkbox_option">
                   <input type="checkbox" id="cb2" />
                   <label htmlFor="cb2">I want to receive the newsletter</label>
-                </div>
+                </div> */}
                 <input className="button" type="submit" value="Register" />
               </form>
             </div>

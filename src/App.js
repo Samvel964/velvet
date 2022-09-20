@@ -5,7 +5,7 @@ import { FaChevronUp } from "react-icons/fa";
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Loader } from './components/Loader/loader';
-import { getUser } from './api/user';
+import { getUser, registration } from './api/user';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserData, setFavoritesId, setCartAddId } from './features/userSlice';
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +21,6 @@ function App() {
   const token = useSelector(state => state.user.token);
   const state = useSelector(state => state.user.state);
 
-
   useEffect(() => {
     getUser().then(res => {
       dispatch(setUserData(res.data))
@@ -31,10 +30,13 @@ function App() {
 
     if (!token) {
       localStorage.removeItem('Token');
+      dispatch(setFavoritesId([]))
+      dispatch(setCartAddId([]))
     }
+
     if (!token && pathname === '/cart') {
-      navigate('/');
-      toast.error("Sorry, for this page need log in");
+      navigate('/velvet');
+      toast.error("Requires log in");
     }
     //eslint-disable-next-line
   },[pathname, state])

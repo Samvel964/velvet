@@ -27,7 +27,7 @@ export const Favorites = () => {
       }
     } 
     if (!token) {
-      toast.error("Need to log in or registration");
+      toast.error("Requires registration or log in");
     }
   };
 
@@ -43,7 +43,7 @@ export const Favorites = () => {
         if (res) dispatch(setState());
       }
     } else {
-      toast.error("Need to log in or registration");
+      toast.error("Requires registration or log in");
     }  
   };
 
@@ -52,7 +52,7 @@ export const Favorites = () => {
     <section className="favorite product-filter-section">
       <ToastContainer onClick={() => token && navigate('/cart')} />
       <div className="container">
-        {currentUser?.favorites.length > 0 && 
+        {currentUser?.favorites?.length > 0 &&
         <>
         <div className="section-title">
           <h2 id="favorites">YOUR FAVORITES</h2>

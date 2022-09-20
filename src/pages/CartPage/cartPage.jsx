@@ -9,12 +9,13 @@ import { setState } from "../../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { PageTopInfo } from "../../components/PageTopInfo";
 import { setLoader } from "../../features/configSlice";
+import Swal from 'sweetalert2';
 
 export const Cart = () => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState();
-  const currentUser = useSelector(state => state.user.data)
+  const currentUser = useSelector(state => state.user.data);
 
   useEffect(() => {
     dispatch(setLoader(true));
@@ -25,19 +26,31 @@ export const Cart = () => {
     // eslint-disable-next-line
   }, []);
 
+
   useEffect(() => {
     setSelectedProduct(currentUser.userCart)
   }, [currentUser]);
 
-  const removeItem = async (id) => {
-    const res = await removeCart(id);
-    if (res) dispatch(setState());
+  const removeItem = (id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeCart(id).then(res => {if (res) dispatch(setState())})
+      }
+    })    
   };
 
   const totalPrice = () => {
     const prices = [];
     currentUser?.userCart?.forEach((item) => {
-      if (item !== null) prices.push(item.productPrice);
+      prices.push(item.productPrice);
     });
 
     return prices.reduce((first, second) => {
@@ -47,7 +60,8 @@ export const Cart = () => {
 
   const selectProduct = (id) => {
     setSelectedProduct(products.filter(product => product._id === id));
-  }
+    window.location.href = "#selected";
+  }  
 
   return (
     <>
@@ -68,14 +82,13 @@ export const Cart = () => {
                   </thead>
                   <tbody>
                     {currentUser?.userCart?.map((product) => {
-                      if (product !== null) {
                         return (
                           <tr className="product-tr" key={product._id}>
                             <td
                               className="product-col"
                               onClick={() => selectProduct(product._id)}
                             >
-                              <img src={product?.productImage[0].url} alt="" />
+                              <img src={product?.productImage[0].url} alt="product" />
                               <div className="pc-title">
                                 <h4>{product?.productTitle}</h4>
                               </div>
@@ -91,12 +104,12 @@ export const Cart = () => {
                             </td>
                           </tr>
                         );
-                      }
                     })}
                   </tbody>
                 </table>
               </div>
               <div className="total-cost">
+                <button className="btn-buy">Buy</button>
                 <h6>
                   Total <span>${totalPrice()}</span>
                 </h6>
@@ -113,7 +126,8 @@ export const Cart = () => {
             {selectedProduct && selectedProduct[0]?.productImage?.map((item) => {
               return (
                 <div className="product-item" 
-                  key={item._id} 
+                  key={item._id}
+                  id="selected"
                   >
                   <div className="pi-pic">
                     <img src={item?.url} alt="" />                    
@@ -129,7 +143,6 @@ export const Cart = () => {
         <Favorites />
       </div>
     </section>
-    </>
-    
+    </>    
   );
 };

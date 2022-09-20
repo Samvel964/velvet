@@ -11,10 +11,10 @@ export const HeroSlider = () => {
         <div className="hs-item" style={{backgroundImage: `url(${bg1})`}}>
           <div className="container" >
             <div className="row">
-              <div className="col-xl-6 col-lg-7 text-white">
-                <span className='animate__animated animate__fadeInUp'>New Arrivals</span>
-                <h2 className="animate__animated animate__fadeInUp">denim jackets</h2>
-                <p className="animate__animated animate__fadeInUp">
+              <div className="col-xl-6 col-lg-7 col-md-10 col-sm-10 text-white text">
+                <span className=''>New Arrivals</span>
+                <h2 className="">denim jackets</h2>
+                <p className="">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Quis ipsum sus-pendisse ultrices gravida. Risus commodo
@@ -32,7 +32,7 @@ export const HeroSlider = () => {
         <div className="hs-item" style={{backgroundImage: `url(${bg2})`}}>
           <div className="container" >
             <div className="row">
-              <div className="col-xl-6 col-lg-7 text-white">
+              <div className="col-xl-6 col-lg-7 col-md-10 col-sm-10 text-white text">
                 <span>New Arrivals</span>
                 <h2>denim jackets</h2>
                 <p>

@@ -21,7 +21,7 @@ export const Contact = () => {
         <section className="contact-section">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-6 contact-info">
+                    <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 contact-info">
                         <h3>Get in touch</h3>
                         <p>Main Str, no 23, New York</p>
                         <p>+546 990221 123</p>
@@ -41,9 +41,10 @@ export const Contact = () => {
                             <button className="site-btn">SEND NOW</button>
                         </form>
                     </div>
+                    <div className="map col-lg-6  "><iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d48684.12831841774!2d44.5814064!3d40.3033315!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1662551551930!5m2!1sru!2s" style={{border:0}} allowFullScreen ></iframe></div>
                 </div>
             </div>
-		    <div className="map"><iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d48684.12831841774!2d44.5814064!3d40.3033315!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1662551551930!5m2!1sru!2s" style={{border:0}} allowFullScreen ></iframe></div>                                 
+		    
         </section>
         <div className='white-line'></div>
         </>

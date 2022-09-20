@@ -28,7 +28,7 @@ export const ProductSection = ({ products,loadMore, showButton }) => {
       }
     } 
     if (!token) {
-      toast.error("Need to log in or registration");
+      toast.error("Requires registration or log in");
     }
   }
 
@@ -44,12 +44,12 @@ export const ProductSection = ({ products,loadMore, showButton }) => {
         if (res) dispatch(setState());
       }
     } else {
-      toast.error("Need to log in or registration");
+      toast.error("Requires registration or log in");
     }  
   }
 
   return (
-    <div className="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
+    <div className="col-lg-9  order-2 order-lg-2 mb-5 mb-lg-0">
       <ToastContainer onClick={() => token && navigate('/cart')} />
       <div className="row">
         {products?.map((product) => {

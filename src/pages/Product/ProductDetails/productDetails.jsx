@@ -1,18 +1,34 @@
 import "./style.scss";
 import { AccordionInfo } from "../../../components/Accordion";
-import { FaGooglePlusG } from "react-icons/fa";
-import { FaPinterest } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
+import { FaTwitter, FaYoutube, FaFacebookF, FaPinterest, FaGooglePlusG } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { addToCard } from "../../../api/user";
+import { useSelector, useDispatch } from "react-redux";
+import { toast } from 'react-toastify';
+import { setState } from "../../../features/userSlice";
 
-export const ProductDetails = ({ product }) => {
+
+export const ProductDetails = ({ product, id }) => {
+  const dispatch = useDispatch();
   let [quantity, setQuantity] = useState(1);
+  const token = localStorage.getItem('Token');
+  const cartAddId = useSelector(state => state.user.cartAddId);
 
   if (quantity < 1) {
     quantity = 1
+  }
+
+  const shopNow = async() => {
+    if (token && !cartAddId.includes(id)) {
+      const res = await addToCard(id);
+      if (res) {
+        dispatch(setState());
+      }
+    } 
+    if (!token) {
+      toast.error("Requires registration or log in");
+    }
   }
 
   return (
@@ -64,7 +80,7 @@ export const ProductDetails = ({ product }) => {
           <span className="qtybtn" onClick={() => setQuantity(quantity + 1)}>+</span>
         </div>
       </div>
-      <Link to="/cart" className="site-btn">
+      <Link to="/cart" className="site-btn" onClick={() => shopNow()}>
         SHOP NOW
       </Link>
       <AccordionInfo  description={product?.productDescription}/>

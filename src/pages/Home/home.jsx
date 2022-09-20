@@ -58,7 +58,10 @@ export const Home = () => {
   <>
   <HeroSlider />
   <Features /> 
-  <ProductSlider title={'BEST PRODUCTS'} products={products?.slice(0,15)} />
+  <ProductSlider 
+    title={'BEST PRODUCTS'} 
+    products={products?.slice(0,15)}
+  />
   <FilteredProducts 
     tags={tags?.slice(0,8)}
     products={filteredProducts}

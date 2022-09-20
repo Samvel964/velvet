@@ -40,39 +40,6 @@
 	    padding-top: 170px;
     }
 
-	.site-btn {
-		// display: inline-block;	
-		border: none;
-		font-size: 14px;
-		font-weight: 600;
-		min-width: 167px;
-		padding: 18px 47px 14px;
-		border-radius: 50px;
-		text-transform: uppercase;
-		background: #f51167;
-		color: #fff;
-		line-height: normal;
-		cursor: pointer;
-		text-align: center;
-		position: relative;
-		top: 110px;
-
-		&:hover {
-			color: #fff;
-		}
-	}
-	.site-btn.sb-white {
-		background: #fff;
-		color: #111111;
-	}
-	
-	.site-btn.sb-line {
-		background: transparent;
-		color: #fff;
-		-webkit-box-shadow: inset 0 0 0 1px #fff;
-		box-shadow: inset 0 0 0 1px #fff;
-	}
-
 	.offer-card {
         position: absolute;
         right: 0;
@@ -132,153 +99,49 @@
 		top: 5px;
 		border-radius: 50%;
 	}
-	
 }
 
-
-// .slider-nav-warp {
-// 	max-width: 1145px;
-// 	bottom: 0;
-// 	margin: -78px auto 0;
-// }
-
-// .slider-nav {
-// 	display: inline-block;
-// 	padding: 0 38px;
-// 	position: relative;
-// }
-
-// .owl-dots {
-// 	display: -ms-flex;
-// 	display: -webkit-box;
-// 	display: -ms-flexbox;
-// 	display: flex;
-// 	padding-top: 9px;
-// }
-
-// .owl-dots .owl-dot {
-// 	width: 8px;
-// 	height: 8px;
-// 	background: #fff;
-// 	border-radius: 15px;
-// 	margin-right: 10px;
-// 	// opacity: 0.25;
-// }
-
-// .owl-dots .owl-dot.active {
-// 	opacity: 1;
-// }
-
-// .owl-dots .owl-dot:last-child {
-// 	margin-right: 0;
-// }
-
-// .owl-nav button.owl-next,
-// .owl-nav button.owl-prev {
-// 	font-size: 27px;
-// 	position: absolute;
-// 	color: #fff;
-// 	opacity: 0.5;
-// 	bottom: -20px;
-// }
-
-// .owl-nav button.owl-next {
-// 	right: 0;
-// }
-
-// .owl-nav button.owl-prev {
-// 	left: 0;
-// }
-
-// .owl-item.active .hs-item h2,
-// .owl-item.active .hs-item span,
-// .owl-item.active .hs-item p,
-// .owl-item.active .hs-item .site-btn {
-// 	top: 0;
-// 	opacity: 1;
-// }
-
-// .owl-item.active .hs-item span {
-// 	-webkit-transition: all 0.5s ease 0.2s;
-// 	-o-transition: all 0.5s ease 0.2s;
-// 	transition: all 0.5s ease 0.2s;
-// }
-
-// .owl-item.active .hs-item h2 {
-// 	-webkit-transition: all 0.5s ease 0.4s;
-// 	-o-transition: all 0.5s ease 0.4s;
-// 	transition: all 0.5s ease 0.4s;
-// }
-
-// .owl-item.active .hs-item p {
-// 	-webkit-transition: all 0.5s ease 0.6s;
-// 	-o-transition: all 0.5s ease 0.6s;
-// 	transition: all 0.5s ease 0.6s;
-// }
-
-// .owl-item.active .hs-item .site-btn {
-// 	-webkit-transition: all 0.5s ease 0.8s;
-// 	-webkit-transition: all 0.5s ease 0.8s;
-// 	-o-transition: all 0.5s ease 0.8s;
-// 	transition: all 0.5s ease 0.8s;
-// }
-
-// .owl-item.active .hs-item .offer-card {
-// 	opacity: 1;
-// 	-webkit-transform: rotate(0deg);
-// 	-ms-transform: rotate(0deg);
-// 	transform: rotate(0deg);
-// 	-webkit-transition: all 0.5s ease 1s;
-// 	-webkit-transition: all 0.5s ease 1s;
-// 	-o-transition: all 0.5s ease 1s;
-// 	transition: all 0.5s ease 1s;
-// }
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-	.slider-nav-warp {
-		max-width: 930px;
+@media only screen and (max-width: 768px) {
+	.hs-item {
+		height: 360px;
+		.text {
+			span {
+				font-size: 16px;
+				top: 30px;
+			}
+		
+			h2 {
+				font-size: 40px;
+				top: 30px;
+			}
+			p {
+				display: none;
+			}
+		}
+		.offer-card  {
+			top: 10px;
+		}
 	}
 }
 
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-	
-	.slider-nav-warp {
-		max-width: 690px;
-	}
-	.hs-item .offer-card {
-		top: 20px;
-	}
-}
-
-@media only screen and (max-width: 767px) {
-	
-	.slider-nav-warp {
-		max-width: 510px;
-	}
-	.hs-item h2 {
-		font-size: 50px;
-	}
-	.hs-item .offer-card {
+@media only screen and (max-width: 575px) {
+	.offer-card  {
 		display: none;
 	}
-}
-
-@media only screen and (min-width: 576px) and (max-width: 766px) {
-	.slider-nav-warp {
-		padding: 0 15px;
+	.text {
+		span {
+			display: none;
+		}
+	
+		h2 {
+			display: none;
+		}
 	}
 }
 
-@media only screen and (max-width: 479px) {
-	.slider-nav-warp {
-		max-width: 510px;
-		padding: 0 15px;
-	}
-	.hs-item h2 {
-		font-size: 35px;
-	}
-	.hs-item .sb-line {
-		margin-bottom: 15px;
+@media only screen and (max-width: 425px) {
+	.hs-item {
+		height: 300px;
 	}
 }

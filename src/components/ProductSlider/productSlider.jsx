@@ -8,16 +8,30 @@ import { addToCard, addFavorite, removeFavorite } from "../../api/user";
 import { useSelector, useDispatch } from "react-redux";
 import { setState } from "../../features/userSlice";
 import { ToastContainer, toast } from 'react-toastify';
+import { useState } from "react";
 
 
-export const ProductSlider = ({ title, products }) => {
+export const ProductSlider = ({ title, products, slidesToShow = 4 }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const favoritesId = useSelector(state => state.user.favoritesId);
   const cartAddId = useSelector(state => state.user.cartAddId);
   const token = localStorage.getItem('Token');
+  const [screenSize, setScreenSize] = useState(window.innerWidth)
 
   
+  window.addEventListener('resize', () => {
+    setScreenSize(window.innerWidth)
+  })
+
+  if (screenSize <= 991 && screenSize >= 767) {
+    slidesToShow = 3
+  } else if (screenSize < 767 && screenSize >= 545) {
+    slidesToShow = 2
+  } else if (screenSize < 545) {
+    slidesToShow = 1
+  }
+
 
   const addCart = async(e,id) => {
     e.stopPropagation();
@@ -28,9 +42,10 @@ export const ProductSlider = ({ title, products }) => {
         dispatch(setState());
         toast.success('Product added in Your cart!');
       }
-    } 
+    }
+    
     if (!token) {
-      toast.error("Need to log in or registration");
+      toast.error("Requires registration or log in");
     } 
   }
 
@@ -46,7 +61,7 @@ export const ProductSlider = ({ title, products }) => {
         if (res) dispatch(setState());
       }
     } else {
-      toast.error("Need to log in or registration");
+      toast.error("Requires registration or log in");
     }  
   }
   
@@ -63,7 +78,7 @@ export const ProductSlider = ({ title, products }) => {
           <Carousel
             wrapAround={true}
             autoplay={true}
-            slidesToShow={4}
+            slidesToShow={slidesToShow}
             pauseOnHover={false}
           >
             {products?.map((product) => {
