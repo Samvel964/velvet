@@ -52,7 +52,7 @@ export const FilteredProducts = ({ products, tags, FilterTag, loadMore, showButt
     <section className="product-filter-section">
       <ToastContainer onClick={() => token && navigate('/cart')} />
       <div className="container">
-        {products.length && (
+        {!!products.length && (
           <>
             <div className="section-title">
               <h2>BROWSE TOP SELLING PRODUCTS</h2>

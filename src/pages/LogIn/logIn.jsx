@@ -23,10 +23,12 @@ export const LogIn = ({ showLogIn }) => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     const res = await logIn(user);
-    if (res.statusText === 'OK') {
-        dispatch(setUserData(res.data));
-        showLogIn(false);
-        dispatch(setState())
+    if (res.status === 200) {
+      dispatch(setUserData(res.data));
+      showLogIn(false);
+      dispatch(setState())
+    } else {
+      console.log("error")
     }
   };
   

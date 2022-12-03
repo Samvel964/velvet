@@ -7,7 +7,7 @@ export const MainLayout = () => {
         <>
         <Header/>
         <div style={{minHeight: '70vh'}}>
-        <Outlet />
+            <Outlet />
         </div>
         
         <Footer />

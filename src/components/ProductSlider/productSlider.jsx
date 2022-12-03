@@ -69,7 +69,7 @@ export const ProductSlider = ({ title, products, slidesToShow = 4 }) => {
     <section className="top-letest-product-section">
       <ToastContainer onClick={() => token && navigate('/cart')} />
       <div className="container">
-        {products?.length &&
+        {!!products?.length &&
         <>
         <div className="section-title">
           <h2>{title}</h2>
