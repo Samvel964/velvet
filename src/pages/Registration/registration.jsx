@@ -37,7 +37,7 @@ export const Registration = ({showRegistration}) => {
     formData.append('file',data.avatar);
 
     const res  = await registration(formData);
-    if (res.statusText === 'OK') {
+    if (res.status === 200) {
       dispatch(setUserData(res.data))
       showRegistration(false)
     }

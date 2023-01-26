@@ -20,12 +20,13 @@ export const Home = () => {
   const tags = [];
   const navigate = useNavigate();
 
+
   useEffect(() => {
     dispatch(setLoader(true));
     getAllProducts().then(res => {
       setProducts(res.data.products);
       dispatch(setLoader(false));
-    })    
+    })
   },[])
 
   useEffect(() => {

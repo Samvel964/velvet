@@ -17,6 +17,7 @@ export const FilteredProducts = ({ products, tags, FilterTag, loadMore, showButt
   const token = localStorage.getItem('Token');
 
 
+
   const addCart = async(e,id) => {
     e.stopPropagation();
 
